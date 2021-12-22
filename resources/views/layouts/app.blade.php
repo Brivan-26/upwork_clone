@@ -11,5 +11,9 @@
         @include('partials.navbar')
       @yield('content')
       </div>
+
+
+      <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
+      @livewireScripts
     </body>
 </html>
