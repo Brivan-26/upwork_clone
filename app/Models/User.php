@@ -52,4 +52,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Job');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Job');
+    }
 }
+
