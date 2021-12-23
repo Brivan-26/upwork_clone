@@ -5,10 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>Upwork Clone</title>
+        <style>
+            [x-cloak] { display: none; }
+        </style>
     </head>
     <body>
       <div class="container mx-auto px-4">
         @include('partials.navbar')
+        <livewire:flash />
       @yield('content')
       </div>
 

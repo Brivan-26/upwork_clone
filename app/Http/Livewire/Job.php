@@ -8,9 +8,14 @@ class Job extends Component
 {
     public $job;
 
+
     public function addLike()
     {
-        Auth::user()->likes()->toggle($this->job->id);
+        if(auth::check()) {
+            Auth::user()->likes()->toggle($this->job->id);
+        }else {
+            $this->emit('flash', 'Please login to add the job to your favors', 'error');
+        }
     }
 
     public function render()
