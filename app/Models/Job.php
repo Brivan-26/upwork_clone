@@ -26,4 +26,9 @@ class Job extends Model
             return Auth::user()->likes->contains('id', $this->id);
         }
     }
+
+    public function proposals()
+    {
+        return $this->hasMany('App\Models\Proposal');
+    }
 }

@@ -17,9 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index');
 Route::get('/showJobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show');
+
+Route::group(['middleware' => ['auth', 'proposal']], function() {
+    Route::post('/submit/{proposal}', [App\Http\Controllers\ProposalController::class, 'store'])->name('proposals.submit');
+});

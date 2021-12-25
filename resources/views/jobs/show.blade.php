@@ -14,4 +14,14 @@
             <span class="text-sm text-gray-600">{{number_format($job->price/100,2,',',' ')}} $</span>
         </div>
 
+        <section x-data="{open:false}">
+
+
+                <a href="#" class="text-green-500" @click="open = !open">Click here to send proposal</a>
+                <form action="{{ route('proposals.submit', $job->id) }}" method="POST" x-show="open" x-cloack>
+                    @csrf
+                    <textarea name="content" class="border border-gray-500 focus:outline-none p-3 w-full max-w-md font-thin "></textarea>
+                    <button type="submit" class="block bg-green-700 text-white px-3 py-2">Send proposal</button>
+                </form>
+        </section>
 @endsection
